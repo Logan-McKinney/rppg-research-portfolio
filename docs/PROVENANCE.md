@@ -50,4 +50,6 @@ The PURE reports sometimes say “53 subjects”; the screenshots show 41 traini
 - Repaired the truncated `DATA_FO` line in the inherited SCAMPS-to-UBFC EfficientPhys inference YAML to `DATA_FORMAT: NDCHW`, matching the sibling EfficientPhys inference recipes. No model or signal calculation changed.
 - Restructured documentation and retained approved original figures. No models were retrained and no experiment values were regenerated.
 
+The exact historical upstream revision remains unidentified. Logan confirmed on October 21, 2026 that Patrick Conley and the relevant team/rightsholders approved public redistribution of the team additions, including Patrick-derived motion helpers; this does not assign a new license or transfer copyright. See [third-party notices](../THIRD_PARTY_NOTICES.md).
+
 Hashes, remaining reproducibility gaps and actual checks are recorded separately. Proposed improvements were not retroactively implemented to make the research look complete.

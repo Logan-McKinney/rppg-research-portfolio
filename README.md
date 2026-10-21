@@ -112,7 +112,7 @@ unsupervised_methods/     Inherited POS, CHROM, ICA, GREEN, PBV, and LGI baselin
 configs/                  Retained training and inference recipes, portable path examples
 tools/                    PURE motion batch runner and synthetic model checks
 Images/                   Original approved research diagrams and plots
-docs/                     Evidence, full results, dataset/setup guidance, release review
+docs/                     Evidence, full results, dataset/setup guidance, validation
 ```
 
 This is one canonical source tree. Raw recordings, physiological measurements, caches, private slide decks, model weights, and standalone third-party tracker repositories are excluded.
@@ -159,7 +159,7 @@ The inherited PURE → UBFC example uses an 80%/20% PURE training/validation spl
 ## Limitations
 
 - The team result table is a historical report; exact checkpoints, run logs, subject mappings, and uncertainty estimates are not bundled.
-- Daily results cover a narrow Nodding/70-lux subset, with low waveform correlations and documented motion regressions. No broad robustness or clinical-generalization claim follows.
+- Daily/Aya is an internal collaborative dataset with restricted availability and no verified public citation. Daily results cover a narrow Nodding/70-lux subset, with low waveform correlations and documented motion regressions. No broad robustness or clinical-generalization claim follows.
 - Motion padding/truncation, zero fallback, per-clip normalization, and Daily frame/CSV alignment require care. Missing motion files do not constitute a measured-motion ablation: the loader supplies zeros, while direct model calls with `None` use heuristic features.
 - Region names describe configured landmark sets, not validated anatomical segmentation for every region. The glabella-oriented padding/vertical crop is shared across region choices in this snapshot.
 - Legacy dependencies, fixed spatial/channel assumptions, and train/validation loss differences remain documented in [Results](docs/RESULTS.md). Algorithms and trained-model behavior were not redesigned for this portfolio.
@@ -175,4 +175,4 @@ This work was conducted collaboratively at the University of Dayton with **Dr. T
 - **TS-CAN / MTTS-CAN:** Xin Liu et al., *Multi-Task Temporal Shift Attention Networks for On-Device Contactless Vitals Measurement*, NeurIPS 2020. [Paper](https://arxiv.org/abs/2006.03790).
 - **3DDFA_V2:** Jianzhu Guo et al., *Towards Fast, Accurate and Stable 3D Dense Face Alignment*, ECCV 2020. [Original project](https://github.com/cleardusk/3DDFA_V2). Its source, weights, and Patrick's standalone tracker are not bundled.
 
-The upstream toolbox uses the **Responsible Artificial Intelligence Source Code License, version 1.1**, reproduced in [LICENSE](LICENSE). Its restrictions apply to upstream-derived work; users and downstream distributors must comply with Section 3.2. This project is not relicensed as MIT. Existing copyright notices, including the Intel/OpenCV cascade notice, remain intact. See [third-party notices](THIRD_PARTY_NOTICES.md), [provenance](docs/PROVENANCE.md), and [release review](docs/RELEASE_REVIEW.md) for remaining questions about historical source lineage and collaborator contribution terms.
+The upstream toolbox uses the **Responsible Artificial Intelligence Source Code License, version 1.1**, reproduced in [LICENSE](LICENSE). Its restrictions apply to upstream-derived work; users and downstream distributors must comply with Section 3.2. This project is not relicensed as MIT. Existing copyright notices, including the Intel/OpenCV cascade notice, remain intact. See [third-party notices](THIRD_PARTY_NOTICES.md) and [provenance](docs/PROVENANCE.md) for historical source lineage and contributor attribution.

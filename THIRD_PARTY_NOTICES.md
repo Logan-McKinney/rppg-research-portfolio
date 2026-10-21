@@ -4,7 +4,7 @@
 
 This project derives from [ubicomplab/rPPG-Toolbox](https://github.com/ubicomplab/rPPG-Toolbox). The complete Responsible Artificial Intelligence Source Code License (version 1.1, November 20, 2022) is included in [LICENSE](LICENSE), retrieved from upstream LICENSE blob `67f9f16ce37c2fd7a0c09a1ea308dd14279c79a7` on October 21, 2026. Use and redistribution of upstream-derived work are subject to that license, including the restrictions in Section 3.2 and the downstream obligations stated there. No MIT relicensing is asserted.
 
-The research snapshot did not contain a root license file. Restoring the published upstream notice does not establish the exact original toolbox revision or independently resolve licensing of every collaborator addition. Before public release, confirm the historical base revision and terms for the team's additions. Logan confirmed preparation of the code for public release is permitted; that confirmation is distinct from assigning a new copyright license.
+The research snapshot did not contain a root license file; the published upstream notice has been restored. The exact historical toolbox revision remains unidentified. On October 21, 2026, Logan confirmed that Patrick Conley and the relevant team/rightsholders approved public redistribution of the collaborative additions, including the Patrick-derived motion helper implementations. This records redistribution permission, not a transfer of copyright or a new blanket license. Upstream-derived work remains subject to the included Responsible AI license; no additional license is assigned to independently owned contributions.
 
 Upstream toolbox authors include Xin Liu, Girish Narayanswamy, Akshay Paruchuri, Xiaoyu Zhang, Jiankai Tang, Yuzhe Zhang, Yuntao Wang, Soumyadip Sengupta, Shwetak Patel, and Daniel McDuff. Copyright remains with the respective authors and contributors. Existing notices in copied files have been retained.
 
@@ -20,7 +20,7 @@ Matthew Dowell researched the ROI approach; Logan McKinney implemented/integrate
 
 ## External tracker ecosystem
 
-[MediaPipe](https://github.com/google-ai-edge/mediapipe) and [3DDFA_V2](https://github.com/cleardusk/3DDFA_V2) remain external dependencies/projects. No standalone 3DDFA source, pretrained weights, CropSense implementation, or Face Landmarker task file is included. The included PURE batch runner explicitly derives feature-extraction helpers from Patrick's script; collaborator terms for those helpers should be confirmed with the other team additions. References to a Daily tracker using SCRFD/InsightFace come from the private progress evidence, not a claim that those components are bundled or share a single license.
+[MediaPipe](https://github.com/google-ai-edge/mediapipe) and [3DDFA_V2](https://github.com/cleardusk/3DDFA_V2) remain external dependencies/projects. No standalone 3DDFA source, pretrained weights, CropSense implementation, or Face Landmarker task file is included. The included PURE batch runner explicitly derives feature-extraction helpers from Patrick's script; approved public redistribution of those helpers is recorded above. References to a Daily tracker using SCRFD/InsightFace come from the private progress evidence, not a claim that those components are bundled or share a single license.
 
 ## Data and private evidence
 

@@ -20,7 +20,7 @@ E04 also reports a five-epoch qualitative ROI check: both loss-only ROI choices 
 
 ## Daily/Aya Nodding experiments
 
-E07–E09 report a local subset: Nodding, 70 lux, distances 1/2/3 m, 50 fps, 300-frame clips (six seconds), batch size two, CPU. The loader uses seven train and three test subject IDs; slides report 241 training chunks and 108 test chunks. Raw IDs, recordings and signals are not bundled. The 30 motion-extraction sessions correspond to three distances per included subject, not 30 different people. Access conditions and official dataset identity require team confirmation.
+E07–E09 report a local subset: Nodding, 70 lux, distances 1/2/3 m, 50 fps, 300-frame clips (six seconds), batch size two, CPU. The loader uses seven train and three test subject IDs; slides report 241 training chunks and 108 test chunks. Raw IDs, recordings and signals are not bundled. The 30 motion-extraction sessions correspond to three distances per included subject, not 30 different people. Daily/Aya is an internal collaborative dataset with restricted availability; no verified public citation or public access mechanism is established.
 
 | Run | Epochs | Main documented change | HR Pearson | HR MAE (bpm) | Waveform r | DTW |
 | --- | ---: | --- | ---: | ---: | ---: | ---: |

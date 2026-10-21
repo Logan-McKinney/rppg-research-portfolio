@@ -19,7 +19,7 @@ Request access directly from dataset owners and follow their conditions. No raw 
 | SCAMPS | D. McDuff, M. Wander, X. Liu, B. Hill, J. Hernandez, J. Lester, T. Baltrusaitis, *SCAMPS: Synthetics for Camera Measurement of Physiological Signals*, 2022. [Paper](https://arxiv.org/abs/2206.04197) · [Project](https://github.com/danmcduff/scampsdataset). | `SCAMPSLoader.py` |
 | MMPD | J. Tang, K. Chen, Y. Wang, Y. Shi, S. Patel, D. McDuff, X. Liu, *MMPD: Multi-Domain Mobile Video Physiology Dataset*, 2023. [Project](https://github.com/THU-CS-PI/MMPD_rPPG_dataset). | `MMPDLoader.py` |
 | COHFACE | Existing loader retained; request and verify access with the dataset owner before use. No COHFACE result is claimed here. | `COHFACELoader.py` |
-| Daily / Aya | Team/local dataset named “Daily” in progress reports and “Aya” in code. Official citation, access terms and dataset identity are not established in the retained documentation; confirm with the advisor. | `AyaLoader.py` |
+| Daily / Aya | Internal collaborative dataset named “Daily” in progress reports and “Aya” in code, with restricted availability. No verified public citation or public access mechanism is established; this repository provides no dataset access or redistribution rights. | `AyaLoader.py` |
 
 The shared README said only three datasets were supported while also listing MMPD and future COHFACE support. The current snapshot contains the six loaders above; their presence does not prove validated experiment coverage for each dataset.
 
