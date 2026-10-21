@@ -1,0 +1,103 @@
+BASE: ['']
+TOOLBOX_MODE: "train_and_test"      # "train_and_test"  or "only_test"
+TRAIN:
+  BATCH_SIZE: 2
+  EPOCHS: 10
+  LR: 9e-3
+  MODEL_FILE_NAME: PURE_PURE_UBFC_deepphysmultitask
+  LOAD_MODEL_PATH: ""  # <local-path>
+  DATA:
+    FS: 30
+    DATASET: PURE
+    DO_PREPROCESS: False
+    DATA_FORMAT: NDCHW
+    DATA_PATH: "data/PURE"          # need to be updated
+    CACHED_PATH: "cache/PURE_Preprocessed_Haar"
+    EXP_DATA_NAME: ""
+    BEGIN: 0.0
+    END: 0.7
+    PREPROCESS:
+      ROI_METHOD: "haar"               # added
+      ROI_REGION: "glabella"                # added
+      MIN_DETECTION_CONFIDENCE: 0.5         # added
+      MIN_TRACKING_CONFIDENCE: 0.5          #added
+      DATA_TYPE: ['DiffNormalized', 'Standardized']
+      LABEL_TYPE: DiffNormalized
+      DO_CHUNK: True
+      CHUNK_LENGTH: 180
+      DYNAMIC_DETECTION: False
+      DYNAMIC_DETECTION_FREQUENCY: 180
+      CROP_FACE: True
+      LARGE_FACE_BOX: True
+      LARGE_BOX_COEF: 1.5
+      H: 72
+      W: 72
+VALID:
+  DATA:
+    FS: 30
+    DATASET: PURE
+    DO_PREPROCESS: False #False                  # if first time, should be true
+    DATA_FORMAT: NDCHW
+    DATA_PATH: "data/PURE"          # need to be updated
+    CACHED_PATH: "cache/PURE_Preprocessed_Haar"
+    EXP_DATA_NAME: ""
+    BEGIN: 0.7
+    END: 0.8
+    PREPROCESS:
+      ROI_METHOD: "haar"
+      ROI_REGION: "glabella"
+      MIN_DETECTION_CONFIDENCE: 0.5
+      MIN_TRACKING_CONFIDENCE: 0.5
+      DATA_TYPE: [ 'DiffNormalized','Standardized' ]
+      LABEL_TYPE: DiffNormalized
+      DO_CHUNK: True
+      CHUNK_LENGTH: 180
+      DYNAMIC_DETECTION: False
+      DYNAMIC_DETECTION_FREQUENCY : 180
+      CROP_FACE: True
+      LARGE_FACE_BOX: True
+      LARGE_BOX_COEF: 1.5
+      H: 72
+      W: 72
+TEST:
+  METRICS: ['MAE','RMSE','MAPE','Pearson','MSE','PSNR','Correlation','DTW','SNR','Peak Shape Score','Peak Distance','Trough Distance']
+  USE_LAST_EPOCH: True                      # to use provided validation dataset to find the best epoch, should be false
+  DATA:
+    FS: 30
+    DATASET: PURE  #UBFC
+    DO_PREPROCESS: False                   # if first time, should be true
+    DATA_FORMAT: NDCHW
+    DATA_PATH: "data/PURE"
+    CACHED_PATH: "cache/PURE_Preprocessed_Haar"
+    EXP_DATA_NAME: ""
+    BEGIN: 0.8
+    END: 1.0
+    PREPROCESS:
+      ROI_METHOD: "haar"
+      ROI_REGION: "glabella"
+      MIN_DETECTION_CONFIDENCE: 0.5
+      MIN_TRACKING_CONFIDENCE: 0.5
+      DATA_TYPE: [ 'DiffNormalized','Standardized' ]
+      LABEL_TYPE: DiffNormalized
+      DO_CHUNK: True
+      CHUNK_LENGTH: 180
+      DYNAMIC_DETECTION: False
+      DYNAMIC_DETECTION_FREQUENCY : 180
+      CROP_FACE: True
+      LARGE_FACE_BOX: True
+      LARGE_BOX_COEF: 1.5
+      H: 72
+      W: 72
+DEVICE: cpu
+NUM_OF_GPU_TRAIN: 0
+LOG:
+  PATH: runs/exp
+MODEL:
+  DROP_RATE: 0.2
+  NAME: DeepPhysMultiTask
+INFERENCE:
+  BATCH_SIZE: 4
+  EVALUATION_METHOD: "FFT"        # "FFT" or "peak detection"
+  MODEL_PATH: ""
+# <local-path>
+# <local-path>

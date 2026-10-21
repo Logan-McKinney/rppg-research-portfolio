@@ -1,0 +1,92 @@
+BASE: ['']
+TOOLBOX_MODE: "only_test"
+TRAIN:
+  BATCH_SIZE: 2
+  EPOCHS: 20
+  LR: 1e-4
+  MODEL_FILE_NAME: Aya_Aya_deepphysmultitask
+  LOAD_MODEL_PATH: ""
+  DATA:
+    FS: 50
+    DATASET: Aya
+    DO_PREPROCESS: False
+    DATA_FORMAT: NDCHW
+    DATA_PATH: "data/Daily"
+    CACHED_PATH: "cache/Aya_Preprocessed_v1"
+    EXP_DATA_NAME: ""
+    BEGIN: 0.0
+    END: 1.0
+    PREPROCESS:
+      ROI_METHOD: "haar"
+      DATA_TYPE: ['DiffNormalized', 'Standardized']
+      LABEL_TYPE: DiffNormalized
+      DO_CHUNK: True
+      CHUNK_LENGTH: 300
+      DYNAMIC_DETECTION: False
+      DYNAMIC_DETECTION_FREQUENCY: 30
+      CROP_FACE: True
+      LARGE_FACE_BOX: True
+      LARGE_BOX_COEF: 1.5
+      H: 72
+      W: 72
+VALID:
+  DATA:
+    FS: 50
+    DATASET: Aya
+    DO_PREPROCESS: False
+    DATA_FORMAT: NDCHW
+    DATA_PATH: "data/Daily"
+    CACHED_PATH: "cache/Aya_Preprocessed"
+    EXP_DATA_NAME: ""
+    BEGIN: 0.0
+    END: 1.0
+    PREPROCESS:
+      ROI_METHOD: "haar"
+      DATA_TYPE: ['DiffNormalized', 'Standardized']
+      LABEL_TYPE: DiffNormalized
+      DO_CHUNK: True
+      CHUNK_LENGTH: 300
+      DYNAMIC_DETECTION: False
+      DYNAMIC_DETECTION_FREQUENCY: 30
+      CROP_FACE: True
+      LARGE_FACE_BOX: True
+      LARGE_BOX_COEF: 1.5
+      H: 72
+      W: 72
+TEST:
+  METRICS: ['MAE', 'RMSE', 'MAPE', 'Pearson', 'MSE', 'PSNR', 'Correlation', 'DTW', 'SNR']
+  USE_LAST_EPOCH: True
+  DATA:
+    FS: 50
+    DATASET: Aya
+    DO_PREPROCESS: False
+    DATA_FORMAT: NDCHW
+    DATA_PATH: "data/Daily"
+    CACHED_PATH: "cache/Aya_Preprocessed_test_v1"
+    EXP_DATA_NAME: ""
+    BEGIN: 0.0
+    END: 1.0
+    PREPROCESS:
+      ROI_METHOD: "haar"
+      DATA_TYPE: ['DiffNormalized', 'Standardized']
+      LABEL_TYPE: DiffNormalized
+      DO_CHUNK: True
+      CHUNK_LENGTH: 300
+      DYNAMIC_DETECTION: False
+      DYNAMIC_DETECTION_FREQUENCY: 30
+      CROP_FACE: True
+      LARGE_FACE_BOX: True
+      LARGE_BOX_COEF: 1.5
+      H: 72
+      W: 72
+DEVICE: cpu
+NUM_OF_GPU_TRAIN: 0
+LOG:
+  PATH: runs/exp
+MODEL:
+  DROP_RATE: 0.2
+  NAME: DeepPhysMultiTask_v1
+INFERENCE:
+  BATCH_SIZE: 1
+  EVALUATION_METHOD: "FFT"
+  MODEL_PATH: "PreTrainedModels/1627c9b2807a931c4497c3e3059c3d5b/Aya_Aya_deepphysmultitask_Epoch19.pth"

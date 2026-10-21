@@ -1,0 +1,90 @@
+BASE: ['']
+TOOLBOX_MODE: "only_test"      # "train_and_test"  or "only_test"
+TRAIN:
+  BATCH_SIZE: 1
+  EPOCHS: 40
+  LR: 9e-3
+  MODEL_FILE_NAME: PURE_PURE_UBFC_deepphys
+  DATA:
+    FS: 30
+    DATASET: PURE
+    DO_PREPROCESS: False               # if first time, should be true
+    DATA_FORMAT: NDCHW
+    DATA_PATH: "data/PURE"
+    CACHED_PATH: "cache/PreprocessedData"
+    EXP_DATA_NAME: ""
+    BEGIN: 0.0
+    END: 0.7
+    PREPROCESS :
+      DATA_TYPE: ['DiffNormalized','Standardized']
+      LABEL_TYPE: DiffNormalized
+      DO_CHUNK: True
+      CHUNK_LENGTH: 180
+      DYNAMIC_DETECTION: False
+      DYNAMIC_DETECTION_FREQUENCY : 180
+      CROP_FACE: True
+      LARGE_FACE_BOX: True
+      LARGE_BOX_COEF: 1.5
+      H: 72
+      W: 72
+VALID:
+  DATA:
+    FS: 30
+    DATASET: PURE
+    DO_PREPROCESS: False                  # if first time, should be true
+    DATA_FORMAT: NDCHW
+    DATA_PATH: "data/PURE"
+    CACHED_PATH: "cache/PreprocessedData"
+    EXP_DATA_NAME: ""
+    BEGIN: 0.7
+    END: 0.8
+    PREPROCESS:
+      DATA_TYPE: [ 'DiffNormalized','Standardized' ]
+      LABEL_TYPE: DiffNormalized
+      DO_CHUNK: True
+      CHUNK_LENGTH: 180
+      DYNAMIC_DETECTION: False
+      DYNAMIC_DETECTION_FREQUENCY : 180
+      CROP_FACE: True
+      LARGE_FACE_BOX: True
+      LARGE_BOX_COEF: 1.5
+      H: 72
+      W: 72
+TEST:
+  METRICS: ['MAE','RMSE','MAPE','Pearson','MSE','PSNR','Correlation','DTW','SNR','Peak Shape Score','Peak Distance','Trough Distance']
+  USE_LAST_EPOCH: True                      # to use provided validation dataset to find the best epoch, should be false
+  DATA:
+    FS: 30
+    DATASET: PURE
+    DO_PREPROCESS: False                    # if first time, should be true
+    DATA_FORMAT: NDCHW
+    DATA_PATH: "data/PURE"
+    CACHED_PATH: "cache/PreprocessedData"
+    EXP_DATA_NAME: ""
+    BEGIN: 0.8
+    END: 1.0
+    PREPROCESS:
+      DATA_TYPE: [ 'DiffNormalized','Standardized' ]
+      LABEL_TYPE: DiffNormalized
+      DO_CHUNK: True
+      CHUNK_LENGTH: 180
+      DYNAMIC_DETECTION: False
+      DYNAMIC_DETECTION_FREQUENCY : 180
+      CROP_FACE: True
+      LARGE_FACE_BOX: True
+      LARGE_BOX_COEF: 1.5
+      H: 72
+      W: 72
+DEVICE: cuda:0
+NUM_OF_GPU_TRAIN: 1
+LOG:
+  PATH: runs/exp
+MODEL:
+  DROP_RATE: 0.2
+  NAME: DeepPhys
+INFERENCE:
+  BATCH_SIZE: 2
+  EVALUATION_METHOD: "FFT"        # "FFT" or "peak detection"
+  MODEL_PATH:   "data/UBFC"
+# <local-path>
+# <local-path>
